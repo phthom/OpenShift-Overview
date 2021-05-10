@@ -2,7 +2,7 @@
 
 
 
-![image-20191012152122962](images/image-20191012152122962-0886483.png)
+![image-20210510225949480](images/image-20210510225949480-0680389.png)
 
 
 
@@ -237,7 +237,7 @@ And then click on **Topology**:
 
 ![image-20200405152515996](images/image-20200405152515996-6093116.png)
 
-Select on your project name (labprojxx): 
+Select on your **project** name (labprojxx): 
 
 ![image-20200405152622960](images/image-20200405152622960-6093183.png)
 
@@ -249,55 +249,58 @@ The following sceen should appear (no resources found):
 
 
 
-On the **From catalog**, find the **Node.js** tile (uncheck the Operator Backed):
+Click on the **From Git** tile:
 
-![image-20200405152909996](images/image-20200405152909996-6093350.png)
+![image-20210510223022458](images/image-20210510223022458-0678622.png)
 
-Select **Node.js** entry and then click on **Create Application** button
+In the **Git Repo URL,** type the following GIT and wait a few seconds 
 
-![image-20200405153058199](images/image-20200405153058199-6093458.png)
-
-
-
-The following resources will be created:
-
-- A build config to build source from a Git repository.
-- An image stream to track built images.
-- A deployment config to rollout new revisions when the image changes.
-- A service to expose your workload inside the cluster.
-- An optional route to expose your workload outside the cluster.
-
-You can have a look to the github **sample** repository. 
-
-``` http
- https://github.com/sclorg/nodejs-ex.git
-```
+`https://github.com/Acovid/chat-app`
 
 
 
-You can see that the builder (S2I) is version 12 for Node.js in the **build section**.
+After a few seconds, the git will be validated to run **Node.js version 12**:
 
-![image-20200911153538305](images/image-20200911153538305-9831338.png)
+![image-20210510223223875](images/image-20210510223223875-0678743.png)
 
-In the **Git section**, click in the **Try Sample** so you get the sample git repo URL filled in:
+Verify that :
 
-![image-20200405153545820](images/image-20200405153545820-6093745.png)
+- **Deployment** has been checked
+- Create a **route** to the application has been checked
 
+At the bottom of this page, click on **Routing**:
 
-
-Then in the General section, names are already there:
-
-![image-20200405153735877](images/image-20200405153735877-6093855.png)
-
+![image-20210510223532481](images/image-20210510223532481-0678932.png)
 
 
-Go to the bottom and click **Create**
 
-![image-20200405153822949](images/image-20200405153822949-6093903.png)
+In the Routing section that opens, check the **Secure Route**
+
+![image-20210510223655378](images/image-20210510223655378-0679015.png)
+
+For TLS Termination, choose **Edge** and for Insecure Traffic pick **allow**:
+
+![image-20210510223801710](images/image-20210510223801710-0679081.png)
+
+Go to the bottom of the page, click **Deployment**:
+
+![image-20210510223900842](images/image-20210510223900842-0679140.png)
+
+In the Deployment section, enter PORT in the NAME, and 8080 in the VALUE
+
+![image-20210510224154757](images/image-20210510224154757-0679314.png)
+
+
+
+Then click **Create**
+
+![image-20210510224220875](images/image-20210510224220875-0679340.png)
+
+
 
 After a few seconds, the new application has been created:
 
-![image-20200405153946293](images/image-20200405153946293-6093986.png)
+![image-20210510224305562](images/image-20210510224305562-0679385.png)
 
 
 
@@ -305,17 +308,33 @@ On this view, you can see the name of the application **nodejs-app**, the deploy
 
 Click in the middle of the **circle**:
 
-![image-20210510135314863](images/image-20210510135314863-0647594.png)
+![image-20210510224353399](images/image-20210510224353399-0679433.png)
 
 
 
 You can now see some details of your application: Pods, Builds, Service and Route.
 
+When the center of the application change to dark blue, the application is ready to be used:
+
+![image-20210510224506385](images/image-20210510224506385-0679506.png)
+
+To get access to your application, you have to find the route: click on  the blue **Route Link** and voilà ! You get access to your application (a chat application from Aco Vidovic - Thanks)
+
+![image-20210510224614096](images/image-20210510224614096-0679574.png)
+
+Check that the application is running : enter a name and a room of you choice. 
+
+![image-20210510224738517](images/image-20210510224738517-0679658.png)
+
+Click **Join** and start typing a few messages:
+
+![image-20210510224836116](images/image-20210510224836116-0679716.png)
 
 
-To get access to your application, you have to find the route: click on  the blue **Route Link** and voilà ! You get access to your application.
 
-![image-20200405154548757](images/image-20200405154548757-6094348.png)
+You can also open **multiple tabs** in your browser with different name and the same chat room :
+
+![image-20210510225028629](images/image-20210510225028629-0679828.png)
 
 
 
@@ -344,19 +363,21 @@ http://nodejs-labproj99.niceam-ba36b2ed0b6b09dbc627b56ceec2f2a4-0000.us-south.co
 
 From the web console, you go to your project<xx>
 
-Click on the black button "**A   nodejs-app**" to show the right pane:
+Click on the black button "**A   chat-app-app**" to show the right pane:
 
-![image-20210510140504412](images/image-20210510140504412-0648304.png)
+![image-20210510225123049](images/image-20210510225123049-0679883.png)
 
 Then click on action and then delete the application:
 
-![image-20200405165812128](images/image-20200405165812128-6098692.png)
+!![image-20210510225221965](images/image-20210510225221965-0679941.png)
 
 Then type the name of your application and click delete:
 
-![image-20200405165859742](images/image-20200405165859742-6098739.png)
+![image-20210510225248089](images/image-20210510225248089-0679968.png)
 
-The project should be empty. 
+
+
+The project should be empty. You are back to the "No resources found" message.
 
 ![image-20210510140622337](images/image-20210510140622337-0648382.png)
 
@@ -595,8 +616,8 @@ You noticed the following details:
 
 - easy to access the OpenShift web console
 - easy to build and deploy the application, the container, the pod.
-- the route concept
-- the Deployment
+- the route concept and how easy to define
+- the Deployment and some parameters
 - the wildcard DNS utilization in routes
 - the S2I concepts to build the docker image
 
